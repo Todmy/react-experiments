@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { List } from './pokemons';
+import { List } from '@/pokemons';
 
 function App() {
   return (
