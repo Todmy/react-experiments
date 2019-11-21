@@ -4,7 +4,7 @@ import { useQuery } from '@apollo/react-hooks';
 function extractItems(data) {
   const hasSingleQuery = Object.keys(data).length === 1;
 
-  if (!hasSingleQuery && !data.items) {
+  if (!hasSingleQuery && !data.item) {
     throw new Error(`Make sure that query expects list of 'items'`)
   }
 
@@ -12,16 +12,18 @@ function extractItems(data) {
 }
 
 export default ({ gql, gqlOpts, children }) => {
-  const { loading, error, data } = useQuery(gql, gqlOpts)
+  const { loading, error, data } = useQuery(gql, gqlOpts);
 
   if (loading) return 'Loading...';
   if (error) return `Error! ${error.message}`;
 
-  const items = extractItems(data);
+  console.log(data)
 
-  return items.map((item, index) => (
-    <React.Fragment key={index}>
+  const item = extractItems(data);
+
+  return (
+    <React.Fragment>
       { children(item) }
     </React.Fragment>
-  ));
+  );
 }

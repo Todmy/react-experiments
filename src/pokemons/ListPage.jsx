@@ -1,5 +1,6 @@
 import React from 'react';
 import { gql } from 'apollo-boost';
+import { Link } from 'react-router-dom';
 
 import { List as DataList } from '@/crud';
 
@@ -22,7 +23,11 @@ export default () => (
   <React.Fragment>
     <h2>List of Items</h2>
     <DataList gql={POKEMONS}>
-      { (item) => <PokemonItem data={item}/> }
+      { (item) => (
+        <Link to={`/pokemons/${item.id}`}>
+          <PokemonItem data={item}/> 
+        </Link>
+      )}
     </DataList>
   </React.Fragment>
 )
