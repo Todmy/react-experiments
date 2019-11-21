@@ -1,26 +1,27 @@
 import React from 'react';
+import { useQuery } from '@apollo/react-hooks';
 
-export default class List extends React.Component {
-  constructor(props){
-    super(props);
-    this.query = props.query
+function extractItems(data) {
+  const hasSingleQuery = Object.keys(data).length === 1;
 
-    this.state = {
-        items : [],
-    };
+  if (!hasSingleQuery && !data.items) {
+    throw new Error(`Make sure that query expects list of 'items'`)
   }
 
-  async componentWillMount() {
-    this.setState({
-      items: await this.query(),
-    })
-  }
+  return Object.values(data)[0]
+}
 
-  render() {
-    return this.state.items.map((item, index) => (
-      <React.Fragment key={index}>
-        { this.props.children(item) }
-      </React.Fragment>
-    ));
-  }
+export default props => {
+  const { loading, error, data } = useQuery(props.gql, props.gqlOpts)
+
+  if (loading) return 'Loading...';
+  if (error) return `Error! ${error.message}`;
+
+  const items = extractItems(data);
+
+  return items.map((item, index) => (
+    <React.Fragment key={index}>
+      { props.children(item) }
+    </React.Fragment>
+  ));
 }
