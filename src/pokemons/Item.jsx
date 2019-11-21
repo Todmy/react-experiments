@@ -1,3 +1,3 @@
 import React from 'react';
 
-export default () => <div>item</div>
+export default (props) => <div>item {props.id}</div>

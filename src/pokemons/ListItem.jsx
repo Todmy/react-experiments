@@ -1,3 +1,5 @@
 import React from 'react';
 
-export default (props) => <div>item</div>
+export default (props) => {
+  return <div>list item {props.data.id}</div>
+}
