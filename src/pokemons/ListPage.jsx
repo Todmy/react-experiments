@@ -19,7 +19,10 @@ const POKEMONS = gql`
 `;
 
 export default () => (
-  <DataList gql={POKEMONS}>
-    { (item) => <PokemonItem data={item}/> }
-  </DataList>
+  <React.Fragment>
+    <h2>List of Items</h2>
+    <DataList gql={POKEMONS}>
+      { (item) => <PokemonItem data={item}/> }
+    </DataList>
+  </React.Fragment>
 )

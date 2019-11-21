@@ -1,10 +1,10 @@
 import React from 'react';
 
-import { List } from '@/pokemons';
+import Router from './Router';
 
 function App() {
   return (
-    <List />
+    <Router />
   );
 }
 
