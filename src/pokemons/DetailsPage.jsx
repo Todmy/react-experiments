@@ -7,6 +7,8 @@ import QuerySwitch from '@/shared/QuerySwitch';
 import Loading from '@/shared/Loading';
 import ErrorNotifier from '@/shared/ErrorNotifier';
 
+import Details from './Details';
+
 const POKEMON = gql`
   query Pokemon($id: String!) {
     pokemon(id: $id) {
@@ -20,8 +22,6 @@ const POKEMON = gql`
     }
   }
 `;
-
-const Details = ({ data }) => <pre>{ JSON.stringify(data.pokemon, null, 2) }</pre>
 
 export default () => {
   const { id } = useParams();
