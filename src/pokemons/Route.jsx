@@ -2,7 +2,7 @@ import React from 'react';
 import { Route, Switch } from 'react-router-dom';
 
 import ListPage from './ListPage';
-import ItemPage from './ItemPage';
+import ItemPage from './DetailsPage';
 
 export default ({ path }) => (
   <Switch>
