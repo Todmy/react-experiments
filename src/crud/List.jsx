@@ -1,20 +1,11 @@
 import React from 'react';
 import { useQuery } from '@apollo/react-hooks';
-
-function extractItems(data) {
-  const hasSingleQuery = Object.keys(data).length === 1;
-
-  if (!hasSingleQuery && !data.items) {
-    throw new Error(`Make sure that query expects list of 'items'`)
-  }
-
-  return Object.values(data)[0]
-}
+import { extractItems } from './helpers';
 
 export default ({ gql, gqlOpts, children }) => {
   const { loading, error, data } = useQuery(gql, gqlOpts)
-
-  if (loading) return 'Loading...';
+  console.log('from list', loading, data)
+  if (loading && !data) return 'Loading...';
   if (error) return `Error! ${error.message}`;
 
   const items = extractItems(data);

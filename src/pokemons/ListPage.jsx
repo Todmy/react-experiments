@@ -12,6 +12,7 @@ const POKEMONS = gql`
       id
       name
       image
+      number
     }
     pokemon(name: "Bulbasaur") {
       id

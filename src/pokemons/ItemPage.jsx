@@ -9,6 +9,10 @@ const POKEMON = gql`
       id
       name
       image
+      number
+      types
+      resistant
+      weaknesses
     }
   }
 `;
@@ -22,7 +26,7 @@ export default () => {
       <div>
         <Link to="/pokemons">Back</Link>
       </div>
-      <DataItem gql={POKEMON} gqlOpts={{ variables: { id } }}>
+      <DataItem gql={POKEMON} gqlOpts={{ variables: { id }, returnPartialData: true }}>
         { (item) => (
           <pre>{ JSON.stringify(item, null, 2) }</pre>
         )}

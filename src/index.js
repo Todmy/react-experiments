@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 
 import App from './App';
 import * as serviceWorker from './serviceWorker';
-import Apollo from './Apollo';
+import Apollo from '@/Apollo';
 
 import './index.css';
 
