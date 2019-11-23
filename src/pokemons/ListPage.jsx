@@ -9,6 +9,8 @@ import ErrorNotifier from '@/shared/ErrorNotifier';
 import List from './List';
 import PokemonItem from './ListItem';
 
+import './list-page.scss';
+
 const POKEMONS = gql`
   query Pokemons($limit: Int!) {
     pokemons(first: $limit) {
@@ -21,9 +23,9 @@ const POKEMONS = gql`
 `;
 
 export default () => (
-  <React.Fragment>
-    <h2>List of Items</h2>
-    <Query query={POKEMONS} variables={{ limit: 4 }}>
+  <div className="pokemons-list-page">
+    <h2 className="heading">Pokemons</h2>
+    <Query query={POKEMONS} variables={{ limit: 10 }}>
       { 
         QuerySwitch({
           loading: Loading,
@@ -32,5 +34,5 @@ export default () => (
         }) 
       }
     </Query>
-  </React.Fragment>
+  </div>
 )

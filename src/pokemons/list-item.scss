@@ -1,0 +1,71 @@
+$image-height: 150px;
+
+.pokemons-list-item {
+  display: grid;
+  grid-template-columns: auto 160px;
+  grid-template-rows: auto;
+  grid-template-areas: 
+    "image number"
+    "image name"
+    "image name";
+  grid-column-gap: 5px;
+  justify-items: stretch;
+  align-items: start;
+  justify-content: space-around;
+
+  border: 1px solid #ffd47c;
+  border-radius: 5px;
+  margin-bottom: 5px;
+  padding: 5px;
+  background-color: #fff;
+  color: #326a6d;
+  font-size: 1.3em;
+
+  @media screen and (min-width: 767px) {
+    grid-template-areas: 
+      "image image"
+      "image image"
+      "number name";
+    justify-items: center;
+  }
+
+  .image {
+    grid-area: image;
+    height: $image-height;
+  }
+
+  .number {
+    grid-area: number;
+    font-weight: 900;
+    color: #326a6d;
+
+    &:before {
+      content: "#";
+      color: #bfb9af;
+      padding: 0 5px;
+      font-style: italic;
+      font-size: 0.8em;
+    }
+  }
+
+  .name {
+    grid-area: name;
+    font-weight: 700;
+    font-style: italic;
+
+    @media screen and (min-width: 767px) {
+      position: relative;
+
+      &:before {
+        content: '';
+        position: absolute;
+        background-color: #5d503861;
+        width: 100%;
+        height: 100%;
+        border-radius: 5px;
+        padding: 2px 5px;
+        transform: translate(-3%, -6%);
+      }
+    }
+  }
+}
