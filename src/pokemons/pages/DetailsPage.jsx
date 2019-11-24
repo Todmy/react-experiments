@@ -7,7 +7,7 @@ import QuerySwitch from '@/shared/QuerySwitch';
 import Loading from '@/shared/Loading';
 import ErrorNotifier from '@/shared/ErrorNotifier';
 
-import Details from './Details';
+import Details from '../components/Details';
 
 import './details-page.scss';
 

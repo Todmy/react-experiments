@@ -6,8 +6,8 @@ import QuerySwitch from '@/shared/QuerySwitch';
 import Loading from '@/shared/Loading';
 import ErrorNotifier from '@/shared/ErrorNotifier';
 
-import List from './List';
-import Details from './Details';
+import List from '../components/List';
+import Details from '../components/Details';
 
 import './list-page.scss';
 

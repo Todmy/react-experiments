@@ -1,8 +1,8 @@
 import React from 'react';
 import { Route, Switch } from 'react-router-dom';
 
-import ListPage from './ListPage';
-import ItemPage from './DetailsPage';
+import ListPage from './pages/ListPage';
+import ItemPage from './pages/DetailsPage';
 
 export default ({ path }) => (
   <Switch>
