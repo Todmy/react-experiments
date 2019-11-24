@@ -1,0 +1,28 @@
+.badge-set {
+  display: flex;
+  align-items: center;
+  margin: 15px 25px;
+  padding: 5px 15px;
+  border: 1px solid #457c64;
+  border-radius: 5px;
+  justify-content: space-between;
+
+  &-name {
+    text-transform: uppercase;
+    font-style: italic;
+  }
+
+  &-content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+  }
+  
+  .badge { 
+    margin: 5px 3px;
+    padding: 10px;
+    background-color: #82cbb2;
+    display: inline-block;
+    border-radius: 10px;
+  }
+}

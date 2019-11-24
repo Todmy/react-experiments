@@ -7,7 +7,7 @@ import Loading from '@/shared/Loading';
 import ErrorNotifier from '@/shared/ErrorNotifier';
 
 import List from './List';
-import PokemonItem from './ListItem';
+import Details from './Details';
 
 import './list-page.scss';
 
@@ -30,7 +30,7 @@ export default () => (
         QuerySwitch({
           loading: Loading,
           error: ErrorNotifier,
-          data: List(PokemonItem),
+          data: List(Details),
         }) 
       }
     </Query>

@@ -9,6 +9,8 @@ import ErrorNotifier from '@/shared/ErrorNotifier';
 
 import Details from './Details';
 
+import './details-page.scss';
+
 const POKEMON = gql`
   query Pokemon($id: String!) {
     pokemon(id: $id) {
@@ -27,9 +29,8 @@ export default () => {
   const { id } = useParams();
 
   return (
-    <React.Fragment>
-      <h2>Item</h2>
-      <div>
+    <div className="pokemons-details-page">
+      <div className="navigation">
         <Link to="/pokemons">Back</Link>
       </div>
       <Query query={POKEMON} variables={{ id }} returnPartialData>
@@ -37,10 +38,10 @@ export default () => {
           QuerySwitch({
             loading: Loading,
             error: ErrorNotifier,
-            data: Details,
+            data: ({data}) => Details({ data: data.pokemon }),
           }) 
         }
       </Query>
-    </React.Fragment>
+    </div>
   )
 }
