@@ -7,8 +7,6 @@
   }
 
   .pokemons-list {
-    $image-height: 150px;
-
     display: grid;
     grid-template-columns: auto;
     grid-template-rows: auto;
@@ -66,7 +64,6 @@
   
       .image {
         grid-area: image;
-        height: $image-height;
       }
   
       .number {
@@ -108,5 +105,6 @@
 
   .loader {
     margin-top: 100px;
+    margin-bottom: 100px;
   }
 }

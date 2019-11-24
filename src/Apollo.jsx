@@ -14,8 +14,8 @@ const client = new ApolloClient({
   }),
 });
 
-export default props => (
+export default props => 
   <ApolloProvider client={client}>
     { props.children }
   </ApolloProvider>
-)
+  

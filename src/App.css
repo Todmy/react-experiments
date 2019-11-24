@@ -3,3 +3,11 @@
   background-color: #f9f3e8;
   min-height: 100vh;
 }
+
+.image-container {
+  width: 150px;
+  height: 150px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}

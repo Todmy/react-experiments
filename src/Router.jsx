@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Switch, Redirect } from 'react-router-dom';
 
 import PokemonRoute from '@/pokemons/Route';
 
-export default () => (
+export default () => 
   <Router>
     <Switch>
       <PokemonRoute path="/pokemons" />
@@ -11,4 +11,3 @@ export default () => (
       <Redirect to="/pokemons" />
     </Switch>
   </Router>
-);
