@@ -1,0 +1,1 @@
+1) Add caching headers for images from BE side.

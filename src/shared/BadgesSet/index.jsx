@@ -1,6 +1,6 @@
 import React from 'react';
 
-import './badges-set.scss';
+import './styles.scss';
 
 export default ({ set: badgesSet, label }) => {
   if (!badgesSet) return null;

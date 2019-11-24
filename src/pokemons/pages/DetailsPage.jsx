@@ -25,6 +25,7 @@ const POKEMON = gql`
   }
 `;
 
+// TODO: try to use gql transformers
 export default () => {
   const { id } = useParams();
 
@@ -38,7 +39,7 @@ export default () => {
           QuerySwitch({
             loading: Loading,
             error: ErrorNotifier,
-            data: ({data}) => Details({ data: data.pokemon }),
+            data: ({data, loading}) => Details({ data: data.pokemon, loading }),
           }) 
         }
       </Query>

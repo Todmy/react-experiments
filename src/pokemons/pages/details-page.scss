@@ -32,6 +32,7 @@
 
   .pokemons-details {
     display: grid;
+    position: relative;
     grid-template-columns: repeat(2, 1fr);
     grid-template-rows: repeat(2, auto) 50px repeat(3, auto);
     grid-template-areas: 
@@ -112,5 +113,16 @@
     .weaknesses {
       grid-area: weaknesses;
     }
+
+    .loader {
+      grid-area: loader;
+
+      position: absolute;
+      left: 50%;
+    }
+  }
+
+  .loader {
+    margin-top: 50px;
   }
 }

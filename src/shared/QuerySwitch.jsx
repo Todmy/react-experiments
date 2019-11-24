@@ -8,6 +8,6 @@ export default (configComponents) => (queryData) => {
   if (loading && isEmpty(data)) return <LCmp loading={loading} />
 
   if (error) return <ECmp error={error} />;
-  
-  return <DCmp data={data} />
+
+  return <DCmp data={data} loading={loading} />
 }
