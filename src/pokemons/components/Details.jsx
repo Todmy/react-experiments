@@ -2,14 +2,14 @@ import React from 'react';
 import BadgesSet from '@/shared/BadgesSet';
 import Loading from '@/shared/Loading';
 
-export default ({ data, loading, short = true }) => 
+const Details = ({ data, loading, short = false }) => 
   <div className="pokemons-details">
     <div style={{backgroundImage: `url(${data.image})`}} className="image image-container" alt={data.name}/>
     <div className="number">{data.number}</div>
     <div className="name">{data.name}</div>
 
     { 
-      short 
+      !short 
       && 
       <>
         <BadgesSet set={data.types} label="types" />
@@ -24,3 +24,7 @@ export default ({ data, loading, short = true }) =>
       <Loading />
     }
   </div>
+
+Details.displayName = 'Details';
+
+export default Details;

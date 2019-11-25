@@ -1,13 +1,17 @@
 import React from 'react';
 import isEmpty from 'lodash.isempty';
 
-export default (configComponents) => (queryData) => {
-  const { loading: LCmp, error: ECmp, data: DCmp } = configComponents;
-  const { loading, error, data, fetchMore } = queryData;
+const QuerySwitch = (props) => {
+  const { loading: LCmp, error: ECmp, success: DCmp, data: response } = props;
+  const { loading, error, data } = response;
   
-  if (loading && isEmpty(data)) return <LCmp loading={loading} />
+  if (loading && isEmpty(data)) return React.cloneElement(LCmp, response);
 
-  if (error) return <ECmp error={error} />;
+  if (error) return React.cloneElement(ECmp, response);
 
-  return <DCmp data={data} loading={loading} fetchMore={fetchMore} />
+  return React.cloneElement(DCmp, response);
 }
+
+QuerySwitch.displayName = 'QuerySwitch';
+
+export default QuerySwitch;

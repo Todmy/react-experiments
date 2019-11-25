@@ -25,13 +25,19 @@ const POKEMONS = gql`
 export default () => 
   <div className="pokemons-list-page">
     <h2 className="heading">Pokemons</h2>
-    <Query query={POKEMONS} variables={{ limit: 25 }}>
-      { 
-        QuerySwitch({
-          loading: Loading,
-          error: ErrorNotifier,
-          data: List(Details),
-        }) 
+    <Query query={POKEMONS} variables={{ limit: 25 }} displayName="LoadAllPokemons">
+      {
+        (data) => 
+          <QuerySwitch
+            data={data}
+            loading={<Loading />}
+            error={<ErrorNotifier />}
+            success={
+              <List>
+                <Details short={true} />
+              </List>
+            }
+          />
       }
     </Query>
   </div>

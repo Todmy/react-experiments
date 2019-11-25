@@ -18,4 +18,3 @@ export default props =>
   <ApolloProvider client={client}>
     { props.children }
   </ApolloProvider>
-  

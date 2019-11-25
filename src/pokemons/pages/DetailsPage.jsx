@@ -2,6 +2,7 @@ import React from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { gql } from 'apollo-boost';
 import { Query } from 'react-apollo';
+import flow from 'lodash.flow';
 
 import QuerySwitch from '@/shared/QuerySwitch';
 import Loading from '@/shared/Loading';
@@ -25,7 +26,8 @@ const POKEMON = gql`
   }
 `;
 
-// TODO: try to use gql transformers
+const flattify = (data) => ({ ...data, data: data.data.pokemon })
+
 export default () => {
   const { id } = useParams();
 
@@ -35,12 +37,17 @@ export default () => {
         <Link to="/pokemons">Back</Link>
       </div>
       <Query query={POKEMON} variables={{ id }} returnPartialData>
-        { 
-          QuerySwitch({
-            loading: Loading,
-            error: ErrorNotifier,
-            data: ({data, loading}) => Details({ data: data.pokemon, loading }),
-          }) 
+        {
+          flow([
+            flattify, 
+            (data) => 
+              <QuerySwitch
+                data={data}
+                loading={<Loading />}
+                error={<ErrorNotifier />}
+                success={<Details />}
+              />,
+          ])
         }
       </Query>
     </div>

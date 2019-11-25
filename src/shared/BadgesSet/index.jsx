@@ -2,7 +2,7 @@ import React from 'react';
 
 import './styles.scss';
 
-export default ({ set: badgesSet, label }) => {
+const BadgesSet = ({ set: badgesSet, label }) => {
   if (!badgesSet) return null;
 
   return <div className={`${label} badge-set`}>
@@ -12,3 +12,7 @@ export default ({ set: badgesSet, label }) => {
     </div>
   </div>
 }
+
+BadgesSet.displayName = 'BadgesSet';
+
+export default BadgesSet;

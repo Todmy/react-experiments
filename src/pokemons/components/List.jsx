@@ -5,7 +5,7 @@ import { InView } from 'react-intersection-observer';
 const LOAD_PACK = 25;
 
 // TODO: should be moved to shared if will be used in another place
-export default (ItemComponent) => ({ data, fetchMore }) => {
+const List = ({ data, fetchMore, children: ItemComponent }) => {
   const [lastLoad, updateLastLoadState] = useState(false);
   const loadMoreData = () => {
     fetchMore({
@@ -25,7 +25,7 @@ export default (ItemComponent) => ({ data, fetchMore }) => {
       {
         data.pokemons.map((item, ind) => 
           <Link to={`/pokemons/${item.id}`} className="list-item" key={ind}>
-            <ItemComponent data={item}/> 
+            { React.cloneElement(ItemComponent, { data: item}) } 
           </Link>
         )
       }
@@ -42,3 +42,7 @@ export default (ItemComponent) => ({ data, fetchMore }) => {
     </div>
   )
 }
+
+List.displayName = 'List';
+
+export default List;
