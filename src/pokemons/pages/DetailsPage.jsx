@@ -34,7 +34,7 @@ export default () => {
   return (
     <div className="pokemons-details-page">
       <div className="navigation">
-        <Link to="/pokemons">Back</Link>
+        <Link to="/pokemons">&lt; Back</Link>
       </div>
       <Query query={POKEMON} variables={{ id }} returnPartialData>
         {
