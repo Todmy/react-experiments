@@ -24,7 +24,7 @@ const POKEMONS = gql`
 
 export default () => 
   <div className="pokemons-list-page">
-    <h2 className="heading">Pokemons</h2>
+    <h2 className="heading">All Pokemons</h2>
     <Query query={POKEMONS} variables={{ limit: 25 }} displayName="LoadAllPokemons">
       {
         (data) => 
